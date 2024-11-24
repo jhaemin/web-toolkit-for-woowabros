@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+dist
+artifacts
+node_modules
+
+# Firefox
+source.zip
