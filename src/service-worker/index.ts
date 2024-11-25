@@ -50,11 +50,6 @@ browser.runtime.onMessage.addListener(async (message: any, sender) => {
     return
   }
 
-  // Transfer the speller result to the content script.
-  if (message.action === 'wtk-speller-result') {
-    browser.tabs.sendMessage(tabId, message)
-  }
-
   if (message.action === 'fetch-request') {
     try {
       const response = await fetch(message.input, {
