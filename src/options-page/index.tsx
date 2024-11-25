@@ -1,4 +1,3 @@
-import { browser } from '@/browser'
 import { Theme } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 import { allTasks } from 'nanostores'
@@ -27,9 +26,6 @@ function handleDarkModeChange(isDark: boolean) {
     document.body.classList.remove('dark-theme')
   }
 }
-
-// Request sync settings before options page is rendered
-browser.runtime.sendMessage({ type: 'sync-settings' })
 
 // Intentionally subscribe before rendering to initialize atoms
 $settings.listen(() => {})
