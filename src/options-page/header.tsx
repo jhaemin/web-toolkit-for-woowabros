@@ -27,7 +27,6 @@ export function Header() {
         style={{
           margin: 'auto',
           height: 'var(--space-9)',
-          borderBottom: '1px solid var(--gray-a6)',
         }}
       >
         <Flex gap="3" align="center">
