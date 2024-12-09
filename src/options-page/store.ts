@@ -52,7 +52,7 @@ onMount($settings, () => {
   async function onStorageChange(
     changes: Record<string, browser.Storage.StorageChange>
   ) {
-    if (changes.settings.newValue) {
+    if (changes.settings?.newValue) {
       $settings.set(changes.settings.newValue)
 
       $registeredContentScripts.set(
