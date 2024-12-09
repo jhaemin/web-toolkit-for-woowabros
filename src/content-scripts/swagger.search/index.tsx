@@ -476,4 +476,4 @@ async function run() {
   })
 }
 
-run()
+runAtDocumentEnd(run)
