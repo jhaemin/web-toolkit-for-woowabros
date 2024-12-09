@@ -146,7 +146,7 @@ export class ContentScriptUtil {
         } as any,
       ])
     } catch (error) {
-      // Registering content scripts would fail if there are no js files.
+      // Failed to register the content script for some reason
       console.error(error)
     }
   }
