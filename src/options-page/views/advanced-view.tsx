@@ -71,7 +71,7 @@ export function AdvancedView() {
 
         <Heading>고급</Heading>
 
-        <Card size="2" variant="classic">
+        <Card size="2">
           <Flex align="center" justify="between">
             <Flex>
               <Heading size="3">백업</Heading>
@@ -161,7 +161,7 @@ export function AdvancedView() {
           </Callout.Root>
         </Card>
 
-        <Card size="2" variant="classic">
+        <Card size="2">
           <Flex align="center" justify="between">
             <Flex>
               <Heading size="3" color="blue">
@@ -202,7 +202,7 @@ export function AdvancedView() {
           </Flex>
         </Card>
 
-        <Card size="2" variant="classic">
+        <Card size="2">
           <Flex align="center" justify="between">
             <Flex>
               <Heading size="3" color="red">
