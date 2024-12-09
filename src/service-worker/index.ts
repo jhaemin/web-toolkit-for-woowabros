@@ -14,7 +14,7 @@ browser.runtime.onInstalled.addListener(async () => {
 
   const settings = await loadSettings()
 
-  const skipNotice = releaseNotes[0].skipNotice ?? false
+  const skipNotice = releaseNotes[0]?.skipNotice ?? false
 
   // Show release notes page (open in a new tab) if the extension is updated.
   // Skip the notice if the first release notes has `skipNotice: true`.
