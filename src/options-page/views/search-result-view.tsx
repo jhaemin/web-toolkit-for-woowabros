@@ -28,7 +28,7 @@ export function SearchResultView() {
           style={{ height: 'calc(var(--space-9) * 2)' }}
         >
           <Text size="2" color="gray">
-            검색 결과가 없어요
+            검색 결과가 없습니다.
           </Text>
         </Flex>
       )}
