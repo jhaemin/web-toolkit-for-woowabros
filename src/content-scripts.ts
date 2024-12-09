@@ -22,7 +22,7 @@ export interface ContentScriptDefinition {
   name: `${ContentScriptDomain}.${string}`
   title: string
   description: string
-  matches: string[] | 'global' | 'custom'
+  matches: string[] | 'custom'
   allFrames?: boolean
 }
 
@@ -34,7 +34,16 @@ export const contentScripts = [
     name: 'swagger.search',
     title: 'Swagger 검색',
     description: 'API 스펙 기반으로 검색할 수 있습니다.',
-    matches: 'custom',
+    matches: [
+      '*://*/*/swagger-ui/*',
+      '*://*/swagger-ui/*',
+      '*://*/*/swagger-ui.html',
+      '*://*/swagger-ui.html',
+      '*://*/*/swagger-ui.html?*',
+      '*://*/swagger-ui.html?*',
+      '*://*/*/swagger',
+      '*://*/swagger',
+    ],
   },
 ] satisfies ContentScriptDefinition[]
 

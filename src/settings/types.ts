@@ -1,7 +1,8 @@
 import type { ContentScriptName } from '@/content-scripts'
 
 export type ContentScriptSettings = Partial<
-  Record<`${ContentScriptName}.enabled`, boolean>
+  Record<`${ContentScriptName}.enabled`, boolean> &
+    Record<`${ContentScriptName}.customMatches`, string[]>
 >
 
 export const dataSettingKeys = [] satisfies `${ContentScriptName}.${string}`[]
