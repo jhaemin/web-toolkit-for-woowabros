@@ -96,3 +96,15 @@ export function popupWindow(
     `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${y}, left=${x}`
   )
 }
+
+export function escapeHTML(html: string) {
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  }
+
+  return html.replace(/[&<>"']/g, (m) => map[m])
+}

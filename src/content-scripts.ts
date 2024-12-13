@@ -2,15 +2,19 @@
  * A top-level domain for content scripts.
  * Each content script should be categorized by its domain.
  */
-export type ContentScriptDomain = 'swagger'
+export type ContentScriptDomain = 'swagger' | 'general'
 
-export const contentScriptDomains: ContentScriptDomain[] = ['swagger']
+export const contentScriptDomains: ContentScriptDomain[] = [
+  'general',
+  'swagger',
+]
 
 /**
  * A label for each content script domain.
  */
 export const contentScriptDomainLabel: Record<ContentScriptDomain, string> = {
   swagger: 'Swagger',
+  general: '일반',
 }
 
 /**
@@ -30,6 +34,14 @@ export interface ContentScriptDefinition {
  * An array of content scripts.
  */
 export const contentScripts = [
+  {
+    name: 'general.speller',
+    title: '맞춤법 검사',
+    description:
+      '모든 웹 페이지에서 텍스트를 선택하고 맞춤법을 검사할 수 있습니다.',
+    matches: ['<all_urls>'],
+    allFrames: true,
+  },
   {
     name: 'swagger.search',
     title: 'Swagger 검색',
