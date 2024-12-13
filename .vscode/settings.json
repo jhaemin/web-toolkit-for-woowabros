@@ -2,6 +2,7 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "quickfix.biome": "explicit",
+    "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit",
     "source.organizeImports": "explicit"
   },
@@ -12,5 +13,6 @@
   "[html][scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": ["nanostores"]
 }
