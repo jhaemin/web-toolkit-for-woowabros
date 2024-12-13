@@ -2,7 +2,16 @@ import { ContentScriptUtil } from '@/content-script-util'
 import type { ContentScript } from '@/content-scripts'
 import { loadSettings } from '@/settings/load-settings'
 import { useStore } from '@nanostores/react'
-import { Card, Flex, Heading, Switch, Text } from '@radix-ui/themes'
+import {
+  Button,
+  Card,
+  Flex,
+  Heading,
+  Link,
+  Popover,
+  Switch,
+  Text,
+} from '@radix-ui/themes'
 import { useEffect, useState } from 'react'
 import { $registeredContentScripts, $settings } from '../store'
 
@@ -64,18 +73,56 @@ export function ContentScriptCard({
             {contentScript.title}
           </Heading>
 
-          <Switch
-            color="blue"
-            variant="surface"
-            checked={isContentScriptEnabled}
-            onCheckedChange={async (checked) => {
-              if (checked) {
-                await ContentScriptUtil.enableContentScript(contentScript)
-              } else {
-                await ContentScriptUtil.disableContentScript(contentScript.name)
-              }
-            }}
-          />
+          <Flex align="center" gap="2">
+            <Popover.Root>
+              <Popover.Trigger>
+                <Button variant="soft" size="1" radius="full" color="gray">
+                  URL
+                </Button>
+              </Popover.Trigger>
+              <Popover.Content align="center">
+                <Flex direction="column">
+                  <Text size="1" mb="2" weight="medium">
+                    다음에 해당하는 URL에서 기능이 활성화됩니다.
+                  </Text>
+                  <Card>
+                    {contentScript.matches.map((match, i) => (
+                      <Text
+                        key={i}
+                        as="p"
+                        size="1"
+                        color="gray"
+                        className="description"
+                      >
+                        {match}
+                      </Text>
+                    ))}
+                  </Card>
+                  <Link
+                    href="https://developer.chrome.com/docs/extensions/develop/concepts/match-patterns?hl=ko"
+                    size="1"
+                    mt="2"
+                    target="_blank"
+                  >
+                    패턴 일치 더 알아보기
+                  </Link>
+                </Flex>
+              </Popover.Content>
+            </Popover.Root>
+            <Switch
+              variant="surface"
+              checked={isContentScriptEnabled}
+              onCheckedChange={async (checked) => {
+                if (checked) {
+                  await ContentScriptUtil.enableContentScript(contentScript)
+                } else {
+                  await ContentScriptUtil.disableContentScript(
+                    contentScript.name
+                  )
+                }
+              }}
+            />
+          </Flex>
         </Flex>
         <Text as="p" size="2" color="gray" className="description">
           {contentScript.description}

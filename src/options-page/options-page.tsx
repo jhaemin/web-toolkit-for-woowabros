@@ -4,11 +4,9 @@ import {
   contentScripts,
 } from '@/content-scripts'
 import { useStore } from '@nanostores/react'
-import { ExclamationTriangleIcon } from '@radix-ui/react-icons'
 import {
   Badge,
   Box,
-  Button,
   Flex,
   Link,
   ScrollArea,
