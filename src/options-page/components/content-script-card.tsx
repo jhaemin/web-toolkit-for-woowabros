@@ -68,10 +68,8 @@ export function ContentScriptCard({
       className="content-script-item"
     >
       <Flex direction="column">
-        <Flex align="center" justify="between">
-          <Heading size="3" mb="2">
-            {contentScript.title}
-          </Heading>
+        <Flex align="center" justify="between" mb="2">
+          <Heading size="3">{contentScript.title}</Heading>
 
           <Flex align="center" gap="2">
             <Popover.Root>
