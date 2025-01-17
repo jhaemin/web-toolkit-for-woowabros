@@ -1,16 +1,35 @@
 import type { ContentScriptName } from '@/content-scripts'
 
-export type ContentScriptSettings = Partial<
-  Record<`${ContentScriptName}.enabled`, boolean> &
-    Record<`${ContentScriptName}.customMatches`, string[]>
+/**
+ * Enabled flag for each content script.
+ */
+export type ContentScriptEnabledSettings = Partial<
+  Record<`${ContentScriptName}.enabled`, boolean>
 >
 
-export const dataSettingKeys = [] satisfies `${ContentScriptName}.${string}`[]
+/**
+ * Custom matches for each content script.
+ */
+export type ContentScriptCustomMatchesSettings = Partial<
+  Record<`${ContentScriptName}.customMatches`, string[]>
+>
 
-type DataSettingsStructure = {}
+/**
+ * Common settings for all content scripts.
+ */
+export type ContentScriptSettings = ContentScriptEnabledSettings &
+  ContentScriptCustomMatchesSettings
 
-export type DataSettings = {
-  [K in (typeof dataSettingKeys)[number]]?: DataSettingsStructure[K]
+export const otherSettingKeys = [
+  'general.speller.inputOnly',
+] satisfies `${ContentScriptName}.${string}`[]
+
+type OtherSettingsStructure = {
+  'general.speller.inputOnly': boolean
 }
 
-export type Settings = ContentScriptSettings & DataSettings
+export type OtherSettings = {
+  [K in (typeof otherSettingKeys)[number]]?: OtherSettingsStructure[K]
+}
+
+export type Settings = ContentScriptSettings & OtherSettings
