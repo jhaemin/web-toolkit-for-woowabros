@@ -77,13 +77,13 @@ export function ContentScriptCard({
             <Popover.Root>
               <Popover.Trigger>
                 <Button variant="soft" size="1" radius="full" color="gray">
-                  URL
+                  URL 패턴
                 </Button>
               </Popover.Trigger>
               <Popover.Content align="center">
                 <Flex direction="column">
                   <Text size="1" mb="2" weight="medium">
-                    다음에 해당하는 URL에서 기능이 활성화됩니다.
+                    아래 패턴과 일치하는 URL에서 기능이 활성화됩니다.
                   </Text>
                   <Card>
                     {contentScript.matches.map((match, i) => (
@@ -94,7 +94,7 @@ export function ContentScriptCard({
                         color="gray"
                         className="description"
                       >
-                        {match}
+                        {match === '<all_urls>' ? '모든 URL' : match}
                       </Text>
                     ))}
                   </Card>
