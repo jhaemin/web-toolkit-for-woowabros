@@ -12,7 +12,7 @@ export function HomeView() {
         </Text>
       </Box>
 
-      <Grid columns="2" width="100%" gap="4">
+      <Grid columns="1" width="100%" gap="4">
         <Link
           href="https://github.com/jhaemin/web-toolkit-for-woowabros"
           target="_blank"
@@ -21,7 +21,7 @@ export function HomeView() {
             <Heading size="3" color="gray" align="center">
               <Flex align="center" gap="1">
                 <GitHubLogoIcon />
-                Github
+                GitHub
               </Flex>
             </Heading>
           </Card>
