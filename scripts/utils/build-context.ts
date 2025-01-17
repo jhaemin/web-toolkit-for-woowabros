@@ -1,6 +1,6 @@
-import path from 'node:path'
 import chalk from 'chalk'
 import esbuild from 'esbuild'
+import path from 'node:path'
 import { isDev } from './build-env'
 import { chromeOutdir, firefoxOutdir } from './outdir'
 import { readContentScriptEntries } from './read-content-script-entries'
@@ -17,6 +17,15 @@ const allEntries = [
   ...contentScriptEntries,
 ]
 
+const envKeys = Object.keys(process.env).filter((key) => key.startsWith('WTK_'))
+const envDefines = envKeys.reduce(
+  (acc, key) => ({
+    ...acc,
+    [`process.env.${key}`]: `"${process.env[key]}"`,
+  }),
+  {}
+)
+
 export const buildContext = await esbuild.context({
   entryPoints: allEntries,
   bundle: true,
@@ -28,6 +37,7 @@ export const buildContext = await esbuild.context({
   define: {
     'process.env.NODE_ENV': `"${isDev ? 'development' : 'production'}"`,
     DEBUG_RELEASE_NOTES: String(Bun.argv.includes('--debug-release-notes')),
+    ...envDefines,
   },
   plugins: [
     {
