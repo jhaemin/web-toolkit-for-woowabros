@@ -100,7 +100,7 @@ export function AdvancedView() {
                 }}
               >
                 <DownloadIcon />
-                Backup
+                백업
               </Button>
               <Button
                 variant="soft"
