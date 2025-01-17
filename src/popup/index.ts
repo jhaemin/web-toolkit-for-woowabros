@@ -12,7 +12,7 @@ const releaseNotes = document.getElementById('release-notes')!
  * Add a reload button in development mode.
  */
 if (process.env.NODE_ENV === 'development') {
-  title.textContent += ' (DEV)'
+  title.innerHTML += ' (DEV)'
 
   const reloadButton = document.createElement('button')
 
