@@ -73,24 +73,17 @@ const commonManifest: chrome.runtime.ManifestV3 = {
     48: 'icons/icon48.png',
     128: 'icons/icon128.png',
   },
-  web_accessible_resources: [
-    {
-      resources: [
-        'icons/icon16.png',
-        'icons/icon24.png',
-        'icons/icon32.png',
-        'icons/icon48.png',
-        'icons/icon64.png',
-        'icons/icon128.png',
-        'icons/icon512.png',
-      ],
-      matches: ['<all_urls>'],
-    },
-  ],
+  web_accessible_resources: [],
   content_scripts: [
     // Static content scripts
   ],
 }
 
-export const chromeManifest = { ...commonManifest, ...chromeOnlyProperties }
-export const firefoxManifest = { ...commonManifest, ...firefoxOnlyProperties }
+export const chromeManifest = {
+  ...structuredClone(commonManifest),
+  ...structuredClone(chromeOnlyProperties),
+}
+export const firefoxManifest = {
+  ...structuredClone(commonManifest),
+  ...structuredClone(firefoxOnlyProperties),
+}

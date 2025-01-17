@@ -1,6 +1,6 @@
-import path from 'node:path'
 import { chromeManifest, firefoxManifest } from '@/manifest'
 import type { ArrayElement } from '@/types/helpers'
+import path from 'node:path'
 import { isDev } from './build-env'
 import { logger } from './logger'
 import { chromeOutdir, firefoxOutdir } from './outdir'
@@ -18,13 +18,8 @@ export async function generateManifest(staticFiles: string[]) {
   chromeManifest.name = name
   firefoxManifest.name = name
 
-  if (chromeManifest.web_accessible_resources) {
-    chromeManifest.web_accessible_resources.push(webAccessibleResources)
-  }
-
-  if (firefoxManifest.web_accessible_resources) {
-    firefoxManifest.web_accessible_resources.push(webAccessibleResources)
-  }
+  chromeManifest.web_accessible_resources?.push(webAccessibleResources)
+  firefoxManifest.web_accessible_resources?.push(webAccessibleResources)
 
   await Promise.all([
     await Bun.write(
