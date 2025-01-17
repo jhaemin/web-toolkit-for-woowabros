@@ -30,7 +30,10 @@
         "useAltText": "off"
       },
       "security": {},
-      "correctness": {}
+      "correctness": {},
+      "performance": {
+        "noAccumulatingSpread": "off"
+      }
     }
   },
   "formatter": {
