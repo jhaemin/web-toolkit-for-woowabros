@@ -2,11 +2,12 @@
  * A top-level domain for content scripts.
  * Each content script should be categorized by its domain.
  */
-export type ContentScriptDomain = 'swagger' | 'general'
+export type ContentScriptDomain = 'swagger' | 'general' | 'jira'
 
 export const contentScriptDomains: ContentScriptDomain[] = [
   'general',
   'swagger',
+  'jira',
 ]
 
 /**
@@ -15,6 +16,7 @@ export const contentScriptDomains: ContentScriptDomain[] = [
 export const contentScriptDomainLabel: Record<ContentScriptDomain, string> = {
   swagger: 'Swagger',
   general: '일반',
+  jira: 'Jira',
 }
 
 /**
@@ -56,6 +58,12 @@ export const contentScripts = [
       '*://*/*/swagger',
       '*://*/swagger',
     ],
+  },
+  {
+    name: 'jira.copySlackPreviewableURL',
+    title: 'Slack에서 미리보기가 되는 링크 복사',
+    description: 'Slack에서 미리보기가 되는 Jira 티켓 링크를 복사합니다.',
+    matches: [`https://${process.env.WTK_WOOWABROS_JIRA_HOST}/browse/*`],
   },
 ] satisfies ContentScriptDefinition[]
 
