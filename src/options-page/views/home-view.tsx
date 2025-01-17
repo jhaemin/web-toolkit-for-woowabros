@@ -13,7 +13,10 @@ export function HomeView() {
       </Box>
 
       <Grid columns="2" width="100%" gap="4">
-        <Link href="https://github.com/jhaemin/web-toolkit" target="_blank">
+        <Link
+          href="https://github.com/jhaemin/web-toolkit-for-woowabros"
+          target="_blank"
+        >
           <Card size="2">
             <Heading size="3" color="gray" align="center">
               <Flex align="center" gap="1">

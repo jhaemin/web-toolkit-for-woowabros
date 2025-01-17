@@ -31,7 +31,7 @@ export function Header() {
       >
         <Flex gap="3" align="center">
           <img src="icons/icon128.png" id="logo" />
-          <Heading size="5">웹 툴킷</Heading>
+          <Heading size="5">웹 툴킷 for 우아한형제들</Heading>
 
           <Badge
             size="3"
