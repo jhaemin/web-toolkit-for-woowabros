@@ -1,13 +1,13 @@
-import { cp, rm } from 'node:fs/promises'
 import chalk from 'chalk'
 import chok from 'chokidar'
 import enquirer from 'enquirer'
+import { cp, rm } from 'node:fs/promises'
 import { buildContext } from './utils/build-context'
 import { isDev, isProd } from './utils/build-env'
 import { copyAllStaticFiles } from './utils/copy-all-static-files'
 import { generateManifest } from './utils/generate-manifest'
 import { chromeOutdir, firefoxOutdir } from './utils/outdir'
-import { compileAllSCSS, compileSCSS } from './utils/sass'
+import { compileAllSCSS } from './utils/sass'
 
 const packageJSON = JSON.parse(await Bun.file('package.json').text())
 const version = packageJSON.version
