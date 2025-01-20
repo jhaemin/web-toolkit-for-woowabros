@@ -8,7 +8,7 @@ const styles = css`
     position: relative;
     margin-left: 8px !important;
     background-color: #e85f00 !important;
-    color: #fff !important;
+    color: var(--ds-text-inverse, #FFFFFF) !important;
     border-radius: 3px !important;
     border: none !important;
     appearance: none !important;
@@ -80,7 +80,7 @@ runAtDocumentEnd(() => {
                 src=${browser.runtime.getURL('/icons/icon64.png')}
                 width="18px"
               />
-              티켓 링크 복사
+              Slack용 링크 복사
             </div>
             <svg
               version="1.1"
@@ -99,8 +99,8 @@ runAtDocumentEnd(() => {
                 />
                 <path
                   d="M9.90672 26.1129C10.6684 26.1129 11.2693 25.795 11.6868 25.1581L25.4557 3.69344C25.7642 3.21063 25.8879 2.80663 25.8879 2.40907C25.8879 1.40039 25.1786 0.704302 24.1594 0.704302C23.4363 0.704302 23.0165 0.947464 22.5779 1.63593L9.84813 21.8596L3.28826 13.425C2.8614 12.8596 2.41346 12.6229 1.78065 12.6229C0.734759 12.6229 0 13.355 0 14.3663C0 14.8008 0.162304 15.2396 0.527633 15.6835L8.11699 25.1789C8.62236 25.8108 9.16874 26.1129 9.90672 26.1129Z"
-                  fill="#fff"
-                  fill-opacity="0.85"
+                  fill="var(--ds-text-inverse, #FFFFFF)"
+                  fill-opacity="1"
                 />
               </g>
             </svg>
