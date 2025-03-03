@@ -61,7 +61,7 @@ export const contentScripts = [
   },
   {
     name: 'jira.copySlackPreviewableURL',
-    title: 'Slack에서 미리보기가 되는 링크 복사',
+    title: 'Slack에서 미리보기가 되는 Jira 티켓 링크 복사',
     description: 'Slack에서 미리보기가 되는 Jira 티켓 링크를 복사합니다.',
     matches: [`https://${process.env.WTK_WOOWABROS_JIRA_HOST}/browse/*`],
   },
