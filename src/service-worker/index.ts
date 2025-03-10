@@ -43,7 +43,7 @@ browser.runtime.onStartup.addListener(async () => {
 /**
  * General message listener for handling fetch requests.
  */
-browser.runtime.onMessage.addListener(async (message: any, sender) => {
+browser.runtime.onMessage.addListener(async (message: any, sender: any) => {
   const tabId = sender.tab?.id
 
   if (!tabId) {
