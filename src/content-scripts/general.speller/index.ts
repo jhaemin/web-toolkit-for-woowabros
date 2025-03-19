@@ -338,49 +338,49 @@ function addTooltipStyleOnce() {
     style.id = 'speller-style'
     style.textContent = css`
       #speller-tooltip {
-        position: fixed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        background-color: #fff;
-        color: #000;
-        font-size: 14px;
-        line-height: 1.4;
-        margin: 0;
-        padding: 0;
-        width: 30px;
-        height: 30px;
-        border-radius: 6px;
+        position: fixed !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        background-color: #fff !important;
+        color: #000 !important;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 30px !important;
+        height: 30px !important;
+        border-radius: 6px !important;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2),
-          0 1px 8px -1px rgba(0, 0, 0, 0.2);
-        white-space: nowrap;
-        transform: translate(-100%, calc(-100% - 4px));
-        z-index: 9999999997;
-        opacity: 0;
+          0 1px 8px -1px rgba(0, 0, 0, 0.2) !important;
+        white-space: nowrap !important;
+        transform: translate(-100%, calc(-100% - 4px)) !important;
+        z-index: 9999999997 !important;
+        opacity: 0 !important;
         transition: opacity 0.2s ease, transform 0.1s ease,
-          background-color 0.1s ease;
+          background-color 0.1s ease !important;
       }
 
       #speller-tooltip.show {
-        opacity: 1;
+        opacity: 1 !important;
       }
 
       #speller-tooltip:hover {
-        background-color: #f4fbf6;
+        background-color: #f4fbf6 !important;
       }
 
       #speller-tooltip:active {
-        transform: translate(-100%, calc(-100% - 4px)) scale(0.92);
+        transform: translate(-100%, calc(-100% - 4px)) scale(0.92) !important;
       }
 
       div.spinner {
-        position: relative;
-        width: 18px;
-        height: 18px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        position: relative !important;
+        width: 18px !important;
+        height: 18px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
       }
 
       div.spinner div {
