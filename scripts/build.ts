@@ -1,6 +1,6 @@
+import { confirm } from '@inquirer/prompts'
 import chalk from 'chalk'
 import chok from 'chokidar'
-import enquirer from 'enquirer'
 import { cp, rm } from 'node:fs/promises'
 import { buildContext } from './utils/build-context'
 import { isDev, isProd } from './utils/build-env'
@@ -16,9 +16,7 @@ console.log(`${chalk.yellow('[version]')} ${version}`)
 console.log(`${chalk.green('[mode]')} ${isDev ? 'development' : 'production'}`)
 
 if (isProd) {
-  const { yes } = await enquirer.prompt<{ yes: boolean }>({
-    type: 'confirm',
-    name: 'yes',
+  const yes = await confirm({
     message: 'Did you update release notes? (release-notes.tsx)',
   })
 
