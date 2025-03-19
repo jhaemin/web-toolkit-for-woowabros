@@ -133,6 +133,7 @@ export class ContentScriptUtil {
         {
           id: contentScript.name,
           matches: contentScript.matches,
+          excludeMatches: contentScript.excludeMatches,
           js: [`content-scripts/${contentScript.name}/index.js`],
           allFrames: contentScript.allFrames,
           // This property doesn't exist in polyfill
@@ -143,7 +144,7 @@ export class ContentScriptUtil {
               ? true
               : undefined,
           runAt: 'document_start',
-        } as any,
+        },
       ])
     } catch (error) {
       // Failed to register the content script for some reason

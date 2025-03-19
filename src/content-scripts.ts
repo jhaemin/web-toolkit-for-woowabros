@@ -2,12 +2,13 @@
  * A top-level domain for content scripts.
  * Each content script should be categorized by its domain.
  */
-export type ContentScriptDomain = 'swagger' | 'general' | 'jira'
+export type ContentScriptDomain = 'swagger' | 'general' | 'jira' | 'jenkins'
 
 export const contentScriptDomains: ContentScriptDomain[] = [
   'general',
   'swagger',
   'jira',
+  'jenkins',
 ]
 
 /**
@@ -17,6 +18,7 @@ export const contentScriptDomainLabel: Record<ContentScriptDomain, string> = {
   swagger: 'Swagger',
   general: '일반',
   jira: 'Jira',
+  jenkins: 'Jenkins',
 }
 
 /**
@@ -28,7 +30,8 @@ export interface ContentScriptDefinition {
   name: `${ContentScriptDomain}.${string}`
   title: string
   description: string
-  matches: string[] | 'custom'
+  matches: string[]
+  excludeMatches?: string[]
   allFrames?: boolean
 }
 
@@ -64,6 +67,21 @@ export const contentScripts = [
     title: 'Slack에서 미리보기가 되는 Jira 티켓 링크 복사',
     description: 'Slack에서 미리보기가 되는 Jira 티켓 링크를 복사합니다.',
     matches: [`https://${process.env.WTK_WOOWABROS_JIRA_HOST}/browse/*`],
+  },
+  {
+    name: 'jenkins.tabBookmarks',
+    title: 'Jenkins 탭 북마크',
+    description: 'Jenkins에서 탭을 북마크하고 빠르게 이동할 수 있습니다.',
+    matches: [
+      `https://*.${process.env.WTK_WOOWABROS_JENKINS_HOST_PROD}/`,
+      `https://*.${process.env.WTK_WOOWABROS_JENKINS_HOST_PROD}/view/*`,
+      `https://*.${process.env.WTK_WOOWABROS_JENKINS_HOST_BETA}/`,
+      `https://*.${process.env.WTK_WOOWABROS_JENKINS_HOST_BETA}/view/*`,
+    ],
+    excludeMatches: [
+      `https://*.${process.env.WTK_WOOWABROS_JENKINS_HOST_PROD}/view/*/job/*`,
+      `https://*.${process.env.WTK_WOOWABROS_JENKINS_HOST_BETA}/view/*/job/*`,
+    ],
   },
 ] satisfies ContentScriptDefinition[]
 

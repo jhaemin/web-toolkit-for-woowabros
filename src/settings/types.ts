@@ -22,10 +22,12 @@ export type ContentScriptSettings = ContentScriptEnabledSettings &
 
 export const otherSettingKeys = [
   'general.speller.inputOnly',
+  'jenkins.tabBookmarks.bookmarks',
 ] satisfies `${ContentScriptName}.${string}`[]
 
 type OtherSettingsStructure = {
   'general.speller.inputOnly': boolean
+  'jenkins.tabBookmarks.bookmarks': Record<string, string[]>
 }
 
 export type OtherSettings = {
