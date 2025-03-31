@@ -45,16 +45,7 @@ const commonManifest: chrome.runtime.ManifestV3 = {
   name: '웹 툴킷 for 우아한형제들',
   description: '브라우저 확장 프로그램 플랫폼',
   version,
-  permissions: [
-    'bookmarks',
-    'clipboardWrite',
-    'favicon',
-    'management',
-    'notifications',
-    'scripting',
-    'storage',
-    'unlimitedStorage',
-  ],
+  permissions: ['clipboardWrite', 'scripting', 'storage', 'unlimitedStorage'],
   host_permissions: ['<all_urls>'],
   options_ui: {
     page: 'options-page.html',
